@@ -72,7 +72,7 @@ with col2:
 st.header("4. Download the course material")
 st.markdown("Recommended option: download the GitHub repository as a ZIP file using Code -> Download ZIP.")
 st.markdown("Advanced option: clone with Git.")
-st.code(f"git clone {repo_url}\ncd <repository-folder>\ncode .", language="bash")
+st.code(f"git clone {repo_url}, language="bash")
 
 st.header("5. Open the project in VS Code")
 st.markdown("In VS Code, select File -> Open Folder and choose the extracted repository folder. Then open the `.ipynb` notebook.")
