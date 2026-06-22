@@ -5,9 +5,9 @@ st.set_page_config(page_title="Python + VS Code Setup Assistant", page_icon="ðŸ
 st.title("Python + VS Code Setup Assistant")
 st.caption("Professional Education Course setup checklist for running a Jupyter Notebook in VS Code")
 
-st.info("Follow the sections in order. Tick each box when completed. Copy the commands for your operating system.")
+st.info("Follow the sections in order. Tick each box when completed in the sidebar. Copy the commands for your operating system.")
 
-repo_url = st.text_input("Course GitHub repository URL", value="https://github.com/mit-fredfactory/FrED-PAL-Kit.git")
+repo_url = st.text_input("Open the course GitHub repository URL:", value="https://github.com/mit-fredfactory/FrED-PAL-Kit.git")
 
 with st.sidebar:
     st.header("Progress")
@@ -46,15 +46,16 @@ st.warning("Windows users: during installation, tick 'Add Python to PATH'.")
 os_choice = st.radio("Choose your operating system", ["Windows", "macOS", "Linux"], horizontal=True)
 
 if os_choice == "Windows":
-    st.code("python --version\npip --version", language="bash")
+    st.code("In your terminal, run:\n" \
+    "python --version\npip --version", language="bash")
     st.markdown("If `python` does not work, try:")
     st.code("py --version", language="bash")
 elif os_choice == "macOS":
-    st.code("python3 --version\npip3 --version", language="bash")
+    st.code("In your terminal, run:\npython3 --version\npip3 --version", language="bash")
 else:
-    st.code("python3 --version\npip3 --version", language="bash")
+    st.code("In your terminal, run:\npython3 --version\npip3 --version", language="bash")
     st.markdown("Ubuntu/Debian installation command:")
-    st.code("sudo apt update\nsudo apt install python3 python3-pip python3-venv", language="bash")
+    st.code("In your terminal, run:\nsudo apt update\nsudo apt install python3 python3-pip python3-venv", language="bash")
 
 st.header("2. Install Visual Studio Code")
 st.markdown("Download and install Visual Studio Code using the default options.")
@@ -63,31 +64,28 @@ st.link_button("Download VS Code", "https://code.visualstudio.com/")
 st.header("3. Install VS Code extensions")
 st.markdown("Open VS Code, go to Extensions, and install these Microsoft extensions:")
 st.markdown("- Python\n- Jupyter")
-col1, col2 = st.columns(2)
-with col1:
-    st.link_button("Python extension", "https://marketplace.visualstudio.com/items?itemName=ms-python.python")
-with col2:
-    st.link_button("Jupyter extension", "https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter")
+st.link_button("Python extension", "https://marketplace.visualstudio.com/items?itemName=ms-python.python")
+st.link_button("Jupyter extension", "https://marketplace.visualstudio.com/items?itemName=ms-toolsai.jupyter")
 
 st.header("4. Download the course material")
-st.markdown("Recommended option: download the GitHub repository as a ZIP file using Code -> Download ZIP.")
+st.markdown("Recommended option: open the GitHub repository and download it as a ZIP file using Code -> Download ZIP.")
 st.markdown("Advanced option: clone with Git.")
-st.code(f"git clone {repo_url}", language="bash")
+st.code(f"In your terminal, run:\ngit clone {repo_url}", language="bash")
 
 st.header("5. Open the project in VS Code")
 st.markdown("In VS Code, select File -> Open Folder and choose the extracted repository folder. Then open the `.ipynb` notebook.")
 
 st.header("6. Create and activate a virtual environment")
 if os_choice == "Windows":
-    st.code("python -m venv .venv\n.venv\\Scripts\\activate", language="bash")
+    st.code("In your terminal, run:\npython -m venv .venv\n.venv\\Scripts\\activate", language="bash")
 elif os_choice == "macOS":
-    st.code("python3 -m venv .venv\nsource .venv/bin/activate", language="bash")
+    st.code("In your terminal, run:\npython3 -m venv .venv\nsource .venv/bin/activate", language="bash")
 else:
-    st.code("python3 -m venv .venv\nsource .venv/bin/activate", language="bash")
+    st.code("In your terminal, run:\npython3 -m venv .venv\nsource .venv/bin/activate", language="bash")
 st.markdown("When activated, the terminal prompt usually starts with `(.venv)`.")
 
 st.header("7. Install required packages")
-st.markdown("If the repository contains a `requirements.txt` file:")
+st.markdown("If the repository contains a `requirements.txt` run file:")
 st.code("pip install -r requirements.txt", language="bash")
 st.markdown("Otherwise install the basic Jupyter support packages:")
 st.code("pip install notebook jupyter ipykernel", language="bash")
