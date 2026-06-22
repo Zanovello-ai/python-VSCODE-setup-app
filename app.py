@@ -75,7 +75,7 @@ st.code(f"In your terminal, run:\ngit clone {repo_url}", language="bash")
 st.header("5. Open the project in VS Code")
 st.markdown("In VS Code, select File -> Open Folder and choose the extracted repository folder. Then open the `.ipynb` notebook.")
 
-st.header("6. Create and activate a virtual environment")
+st.header("(6. Optional: Create and activate a virtual environment)")
 if os_choice == "Windows":
     st.code("In your terminal, run:\npython -m venv .venv\n.venv\\Scripts\\activate", language="bash")
 elif os_choice == "macOS":
@@ -86,9 +86,9 @@ st.markdown("When activated, the terminal prompt usually starts with `(.venv)`."
 
 st.header("7. Install required packages")
 st.markdown("If the repository contains a `requirements.txt` run file:")
-st.code("pip install -r requirements.txt", language="bash")
+st.code("In your terminal, run:\npip install -r requirements.txt", language="bash")
 st.markdown("Otherwise install the basic Jupyter support packages:")
-st.code("pip install notebook jupyter ipykernel", language="bash")
+st.code("In your terminal, run:\npip install notebook jupyter ipykernel", language="bash")
 
 st.header("8. Select the notebook kernel")
 st.markdown("Open the notebook and select: Select Kernel -> Python Environments -> `.venv`.")
@@ -100,18 +100,18 @@ st.code('print("Setup completed successfully!")', language="python")
 st.header("Troubleshooting")
 with st.expander("Python command not found"):
     st.markdown("On Windows, try:")
-    st.code("py --version\npy -m pip install notebook jupyter ipykernel", language="bash")
+    st.code("In your terminal, run:\npy --version\npy -m pip install notebook jupyter ipykernel", language="bash")
     st.markdown("If this works, Python is installed but the `python` command is not available in PATH.")
 
 with st.expander("Cannot activate virtual environment on Windows"):
     st.markdown("Try using Command Prompt instead of PowerShell. If PowerShell blocks activation, run:")
-    st.code("Set-ExecutionPolicy -Scope CurrentUser RemoteSigned", language="powershell")
+    st.code("In your terminal, run:\nSet-ExecutionPolicy -Scope CurrentUser RemoteSigned", language="powershell")
 
 with st.expander("VS Code does not detect Python"):
     st.markdown("Press Ctrl+Shift+P, search for 'Python: Select Interpreter', and select `.venv`.")
 
 with st.expander("Notebook kernel missing"):
-    st.code("pip install ipykernel jupyter", language="bash")
+    st.code("In your terminal, run:\npip install ipykernel jupyter", language="bash")
     st.markdown("Then restart VS Code and select the kernel again.")
 
 st.header("Instructor backup checklist")
