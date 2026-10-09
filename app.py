@@ -7,7 +7,7 @@ st.caption("Professional Education Course setup checklist for running a Jupyter 
 
 st.info("Follow the sections in order. Tick each box when completed in the sidebar. Copy the commands for your operating system.")
 
-repo_url = st.text_input("Open the course GitHub repository URL:", value="https://github.com/mit-fredfactory/FrED-PAL-Kit.git")
+repo_url = st.text_input("Open the course GitHub repository URL:", value="https://github.com/mit-fredfactory/2sfred_computervision.git")
 
 with st.sidebar:
     st.header("Progress")
